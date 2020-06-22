@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .sidebar {
+        background: black;
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        left: -100%;
+        padding: 100px 0;
+        position: absolute;
+        top: 0;
+        transition: left 0.5s linear;
+        width: 300px;
+      }
+
+      .sidebar.visible {
+        left: 0;
+      }
+
+      #close-menu {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 50px;
+        font-weight: 500;
+        position: absolute;
+        right: 30px;
+        transform: rotate(45deg);
+        top: 20px;
+      }
+
+      .sidebar ul {
+        margin: 0;
+        padding: 0;
+      }
+
+      .sidebar ul li {
+        color: white;
+        list-style: none;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 24px;
+        padding: 10px 0;
+      }
+
+      #open-menu {
+        background: none;
+        border: 2px solid black;
+        cursor: pointer;
+        font-size: 24px;
+        padding: 5px 20px;
+        position: absolute;
+        right: 30px;
+        top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="sidebar">
+      <nav>
+        <button id="close-menu" aria-label="Close button">
+          +
+        </button>
+        <ul>
+          <a href="#">
+            <li>About</li>
+          </a>
+          <a href="#">
+            <li>
+              Home
+            </li>
+          </a>
+          <a href="#">
+            <li>Work</li>
+          </a>
+          <a href="#">
+            <li>Contact</li>
+          </a>
+        </ul>
+      </nav>
+    </aside>
+    <button id="open-menu">Menu</button>
+  </body>
+
+  <script>
+    const sidebar = document.querySelector(".sidebar");
+    const openMenu = document.querySelector("#open-menu");
+    const closeMenu = document.querySelector("#close-menu");
+
+    openMenu.addEventListener("click", toggleVisibility);
+    closeMenu.addEventListener("click", toggleVisibility);
+
+    function toggleVisibility() {
+      sidebar.classList.toggle("visible");
+    }
+  </script>
+</html>
