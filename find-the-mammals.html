@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find the mammals v2</title>
+  </head>
+  <body>
+    <div class="all-animals">
+      <div class="animal">
+        <h2>Dog</h2>
+        <p><span class="mammal-value">true</span></p>
+      </div>
+    </div>
+    <div class="all-animals">
+      <div class="animal">
+        <h2>Snake</h2>
+        <p><span class="mammal-value">false</span></p>
+      </div>
+    </div>
+    <div class="all-animals">
+      <div class="animal">
+        <h2>Cheetah</h2>
+        <p><span class="mammal-value">true</span></p>
+      </div>
+    </div>
+    <div class="only-mammals">
+      <h2>Only mammals</h2>
+    </div>
+  </body>
+
+  <script>
+    const mammalValues = Array.from(document.querySelectorAll(".mammal-value"));
+    const mammals = mammalValues.filter(animal => animal.innerHTML === "true");
+    const mammalsNode = document.querySelector(".only-mammals");
+
+    mammals.forEach(mammal => {
+      const animalNode = mammal.parentElement.parentElement;
+
+      mammalsNode.appendChild(animalNode);
+    });
+  </script>
+</html>
